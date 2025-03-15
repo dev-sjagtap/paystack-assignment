@@ -1,0 +1,39 @@
+name: iOS CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Xcode
+      uses: maxim-lobanov/setup-xcode@v2
+      with:
+        xcode-version: '15.0.1'
+    
+    - name: Resolve Swift packages
+      run: |
+        swift package resolve
+
+    - name: Clean and build the app
+      run: |
+        xcodebuild clean -workspace PayStackAssignment.xcworkspace -scheme PayStackAssignment -configuration Release
+
+    - name: Build the app
+      run: |
+        xcodebuild -workspace PayStackAssignment.xcworkspace -scheme PayStackAssignment -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15' build
+
+    - name: Run tests
+      run: |
+        xcodebuild test -workspace PayStackAssignment.xcworkspace -scheme PayStackAssignment -destination 'platform=iOS Simulator,name=iPhone 15' | tee result.log | tail -n 20
+        
