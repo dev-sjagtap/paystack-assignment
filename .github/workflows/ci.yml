@@ -24,7 +24,7 @@ jobs:
     
     - name: Resolve Swift packages
       run: |
-        swift package resolve
+        xcodebuild -resolvePackageDependencies -scheme PayStackAssignment
 
     - name: Clean and build the app
       run: |
