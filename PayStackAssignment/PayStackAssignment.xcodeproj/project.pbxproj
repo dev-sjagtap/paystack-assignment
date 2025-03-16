@@ -19,6 +19,7 @@
 		C2D3D16C2D858C160054D58B /* CharacterServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3D16B2D858C160054D58B /* CharacterServiceTests.swift */; };
 		C2D3D1702D858E7B0054D58B /* MockCharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3D16E2D858E190054D58B /* MockCharacterService.swift */; };
 		C2D3D1722D858EE10054D58B /* CharacterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3D1712D858EE10054D58B /* CharacterViewModelTests.swift */; };
+		C2D3D1752D86D0D40054D58B /* NetStatus in Frameworks */ = {isa = PBXBuildFile; productRef = C2D3D1742D86D0D40054D58B /* NetStatus */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2D3D1752D86D0D40054D58B /* NetStatus in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +136,9 @@
 			dependencies = (
 			);
 			name = PayStackAssignment;
+			packageProductDependencies = (
+				C2D3D1742D86D0D40054D58B /* NetStatus */,
+			);
 			productName = PayStackAssignment;
 			productReference = C234E02C2D8433C30079432B /* PayStackAssignment.app */;
 			productType = "com.apple.product-type.application";
@@ -184,6 +189,9 @@
 				Base,
 			);
 			mainGroup = C234E0232D8433C30079432B;
+			packageReferences = (
+				C2D3D1732D86D0D40054D58B /* XCRemoteSwiftPackageReference "NetStatusPackage" */,
+			);
 			productRefGroup = C234E02D2D8433C30079432B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -489,6 +497,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C2D3D1732D86D0D40054D58B /* XCRemoteSwiftPackageReference "NetStatusPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dev-sjagtap/NetStatusPackage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C2D3D1742D86D0D40054D58B /* NetStatus */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2D3D1732D86D0D40054D58B /* XCRemoteSwiftPackageReference "NetStatusPackage" */;
+			productName = NetStatus;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C234E0242D8433C30079432B /* Project object */;
 }

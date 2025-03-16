@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import NetStatus
 
 struct ContentView: View {
     
     // MARK: - Properties
     @StateObject private var viewModel = CharacterViewModel()
+    let networkStatus = NetStatus.shared
     
     // MARK: - Main body implementation
     var body: some View {
@@ -41,6 +43,12 @@ struct ContentView: View {
         }
         .onAppear {
             viewModel.fetchCharacters()
+            networkStatus.stopMonitoring()
+            if networkStatus.isConnected {
+                print("Internect Connectivity")
+            } else {
+                print("No Internect Connectivity")
+            }
         }
         .navigationTitle("Rick and Morty Characters")
     }
