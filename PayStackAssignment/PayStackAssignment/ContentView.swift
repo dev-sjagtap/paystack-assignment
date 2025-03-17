@@ -42,13 +42,16 @@ struct ContentView: View {
             }
         }
         .onAppear {
+            
             viewModel.fetchCharacters()
+            
             networkStatus.stopMonitoring()
             if networkStatus.isConnected {
                 print("Internect Connectivity")
             } else {
                 print("No Internect Connectivity")
             }
+            
         }
         .navigationTitle("Rick and Morty Characters")
     }
